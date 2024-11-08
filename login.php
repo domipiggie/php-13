@@ -1,5 +1,4 @@
 <?php
-$searchBar = false;
 require("common/db.req.php");
 include("common/nav.inc.php");
 

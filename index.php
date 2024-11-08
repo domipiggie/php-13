@@ -1,7 +1,6 @@
 <?php
 $searchBar = true;
 require("common/db.req.php");
-include("common/nav.inc.php");
 
 $name = '';
 
@@ -15,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
+include("common/nav.inc.php");
 ?>
 
 <section>
@@ -61,11 +61,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $class = ' class="border border-secondary"';
           }
 
-          if (isset($_SESSION["id"]) && $_SESSION["id"] == $row["id"]) {
-            echo "<td" . $class . "><a href='profil.php'>" . $row["nev"] . "</a></td>";
-          } else {
-            echo "<td" . $class . ">" . $row["nev"] . "</td>";
+          $profileImage = "<img class=\"img-thumbnail pfp\" src=\"uploads/profilePictures/-1.jpg\">";
+          if(file_exists("uploads/profilePictures/".$row["id"].".jpg")){
+            $profileImage = "<img class=\"img-thumbnail pfp\" src=\"uploads/profilePictures/".$row["id"].".jpg"."\">";
+          } elseif (str_contains($row["nev"], "-")){
+            $profileImage = "";
           }
+
+          $nev = $row["nev"];
+          if (isset($_SESSION["id"]) && $_SESSION["id"] == $row["id"]) {
+            $nev = "<a href='profil.php'>".$row["nev"]."</a>";
+          }
+          echo "<td".$class.">".$profileImage."<br>".$nev."</td>";
 
           if ($row["oszlop"] == 1 or $row["oszlop"] == 3) {
             echo "<td>  </td>";

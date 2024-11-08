@@ -26,6 +26,13 @@
         display: block;
         margin-bottom: 10px;
     }
+
+    .pfp {
+        height: 100%;
+        width: 100%;
+        max-width: 200px;
+        max-height: 200px;
+    }
 </style>
 </body>
 
@@ -33,7 +40,7 @@
 
 <?php
 
-if(isset($conn)){
+if (isset($conn)) {
     $conn->close();
 }
 

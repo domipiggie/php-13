@@ -24,22 +24,34 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <?php
-                        if (isset($_SESSION["id"])) {
-                            echo '<a class="nav-link" href="login.php">Kilépés</a>';
-                        } else {
-                            echo '<a class="nav-link" href="login.php">Belépés</a>';
-                        }
-                        ?>
-                    </li>
+
+                    <?php
+                    if (!isset($_SESSION["id"])) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">Belépés</a>
+                        </li>
+                    <?php } else { ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <?php echo $_SESSION["nev"]; ?>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="profil.php">Profil</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="login.php">Kijelentkezés</a></li>
+                            </ul>
+                        </li>
+                    <?php } ?>
                 </ul>
                 <?php if ($searchBar === true) { ?>
-                <form class="d-flex" role="search" action="index.php" method="POST">
-                    <input class="form-control me-2" type="search" placeholder="Keresés" aria-label="Search"
-                        name="keresett_nev" value="<?php echo $name; ?>">
-                    <button class="btn btn-outline-success" type="submit">Keresés</button>
-                </form>
+                    <form class="d-flex" role="search" action="index.php" method="POST">
+                        <input class="form-control me-2" type="search" placeholder="Keresés" aria-label="Search"
+                            name="keresett_nev" value="<?php echo $name; ?>">
+                        <button class="btn btn-outline-success" type="submit">Keresés</button>
+                    </form>
                 <?php } ?>
             </div>
         </div>

@@ -26,6 +26,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 } elseif (isset($_SESSION["id"])) {
     unset($_SESSION["id"]);
     unset($_SESSION["nev"]);
+    unset($_SESSION["isAdmin"]);
     header("Refresh:0");
 }
 ?>

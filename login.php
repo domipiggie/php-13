@@ -1,11 +1,12 @@
 <?php
 require("common/db.req.php");
+include("common/head.inc.php");
 include("common/nav.inc.php");
 
 $valasz = "";
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
-    $sql = "SELECT id, nev, password FROM osztaly WHERE username = \"" . $_POST["username"] . "\"";
+    $sql = "SELECT id, nev, password, isAdmin FROM osztaly WHERE username = \"" . $_POST["username"] . "\"";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -14,6 +15,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
             $valasz = "Üdv " . $row["nev"] . "!";
             $_SESSION["id"] = $row["id"];
             $_SESSION["nev"] = $row["nev"];
+            $_SESSION["isAdmin"] = $row["isAdmin"];
             header("Refresh:0; url=index.php");
         } else {
             $valasz = "Hibás jelszó!";

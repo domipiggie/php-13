@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
+include("common/head.inc.php");
 include("common/nav.inc.php");
 ?>
 

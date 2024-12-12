@@ -40,10 +40,12 @@
                 </ul>
                 <?php if ($searchBar === true) { ?>
                     <form class="d-flex" role="search" action="index.php" method="POST">
-                        <input class="form-control me-2" type="search" placeholder="Keresés" aria-label="Search"
+                        <input onkeyup="showHint(this.value)" class="form-control me-2" type="search" placeholder="Keresés" aria-label="Search"
                             name="keresett_nev" value="<?php echo $name; ?>">
                         <button class="btn btn-outline-success" type="submit">Keresés</button>
                     </form>
+                    <div id="txtHint">
+                    </div>
                 <?php } ?>
             </div>
         </div>

@@ -14,7 +14,15 @@
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtHint").innerHTML = this.responseText;
+                        const obj = JSON.parse(this.responseText);
+                        var outputText = "";
+
+                        obj.nevek.forEach(element => {
+                            outputText+="<div>"+element.nev+"</div>";
+                        });
+
+
+                        document.getElementById("txtHint").innerHTML = outputText;
                     }
                 };
                 xmlhttp.open("GET", "gethint.php?q=" + str, true);

@@ -21,7 +21,6 @@
                             outputText+="<div>"+element.nev+"</div>";
                         });
 
-
                         document.getElementById("txtHint").innerHTML = outputText;
                     }
                 };

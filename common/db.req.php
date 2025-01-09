@@ -6,6 +6,8 @@ $username = "teszt";
 $password = "teszt";
 $dbname = "php_teszt";
 
+define("DB_PREFIX","g83bc");
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 mysqli_set_charset($conn, 'utf8');
 

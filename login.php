@@ -6,8 +6,12 @@ include("common/nav.inc.php");
 $valasz = "";
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
-    $sql = "SELECT id, nev, password, isAdmin FROM osztaly WHERE username = \"" . $_POST["username"] . "\"";
-    $result = $conn->query($sql);
+    $param = $_POST["username"];
+    $stmt = $conn->prepare("SELECT id, nev, password, isAdmin FROM ".DB_PREFIX."_osztaly WHERE username = ?");
+    $stmt->bind_param("s",$param);
+
+    $result = $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();

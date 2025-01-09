@@ -41,7 +41,7 @@ include("common/nav.inc.php");
     <tbody>
       <?php
       // adatbázis alapú adatok
-      $sql = "SELECT id, nev, sor, oszlop FROM osztaly ORDER BY sor, oszlop";
+      $sql = "SELECT id, nev, sor, oszlop FROM ".DB_PREFIX."_osztaly ORDER BY sor, oszlop";
       $result = $conn->query($sql);
 
       $sor = NULL;

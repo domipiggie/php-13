@@ -11,7 +11,5 @@ if ($result->num_rows > 0) {
 	while ($row = $result->fetch_assoc()) {
 		$resp[] = array('id' => $row['id'], 'nev' => $row['nev'], 'sor' => $row['sor'], 'oszlop' => $row['oszlop']);
 	}
-} else {
-
 }
 ?>

@@ -25,7 +25,7 @@
                                 <?php echo $_SESSION["nev"]; ?>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="profil.php">Profil</a></li>
+                                <li><a class="dropdown-item" href="index.php?page=profil">Profil</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

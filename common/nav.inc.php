@@ -16,7 +16,7 @@
                     <?php
                     if (!isset($_SESSION["id"])) { ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">Belépés</a>
+                            <a class="nav-link" href="index.php?page=login">Belépés</a>
                         </li>
                     <?php } else { ?>
                         <li class="nav-item dropdown">
@@ -29,7 +29,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="login.php">Kijelentkezés</a></li>
+                                <li><a class="dropdown-item" href="index.php?page=login">Kijelentkezés</a></li>
                             </ul>
                         </li>
                     <?php } if (isset($_SESSION["isAdmin"]) and $_SESSION["isAdmin"] == "1") { ?>
